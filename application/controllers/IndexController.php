@@ -5,8 +5,7 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-       	echo "hello world";
-       /* Initialize action controller here */
+       $this->_redirect('home');
     }
 
     public function indexAction()
