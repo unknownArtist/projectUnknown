@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 19, 2012 at 05:18 AM
+-- Generation Time: Jun 19, 2012 at 06:02 AM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -166,10 +166,10 @@ CREATE TABLE IF NOT EXISTS `references` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `seminar`
+-- Table structure for table `seminars`
 --
 
-CREATE TABLE IF NOT EXISTS `seminar` (
+CREATE TABLE IF NOT EXISTS `seminars` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
@@ -195,10 +195,10 @@ CREATE TABLE IF NOT EXISTS `skills` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suggestion`
+-- Table structure for table `suggestions`
 --
 
-CREATE TABLE IF NOT EXISTS `suggestion` (
+CREATE TABLE IF NOT EXISTS `suggestions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
   `suggestionBy` int(11) NOT NULL,
