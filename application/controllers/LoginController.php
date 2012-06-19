@@ -48,14 +48,28 @@ class LoginController extends Zend_Controller_Action
                     $form->populate($formData);
                 }
     }
+}
 
     private function getAuthAdapter()
     {
         $auth = new Zend_Auth_Adapter_DbTable(Zend_Db_Table::getDefaultAdapter());
         
+        
+        if(isset($_POST['userName']))
+        {
+        echo $_POST['userName'];
+        $temp = explode('@', $_POST['userName']);
+        print_r($temp);
+        die();
+        
+    }
         $auth->setTableName('users')
              ->setIdentityColumn('userName')
-             ->setCredentialColumn('password');        
+             ->setCredentialColumn('password');  
+
+        $auth->setTableName('users')
+             ->setIdentityColumn('userName')
+             ->setCredentialColumn('password');      
         
         return $auth;
     }
