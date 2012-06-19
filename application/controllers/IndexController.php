@@ -5,7 +5,6 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
-	//hello 
        $this->_redirect('home');
     }
 
@@ -16,4 +15,12 @@ class IndexController extends Zend_Controller_Action
 
 
 }
+
+
+/* Search Module
+   Login System
+   SignUp Process
+   whats Trending on our APP
+   
+*/
 
