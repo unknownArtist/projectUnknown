@@ -22,10 +22,10 @@ class LoginController extends Zend_Controller_Action
 
             if ($form->isValid($formData)) 
                 {
-                    $admin    = $form->getValue('userName');
+                    $userName    = $form->getValue('userName');
                     $password = $form->getValue('password');
                     
-                         $authAdapter->setIdentity($admin)
+                         $authAdapter->setIdentity($userName)
                                      ->setCredential($password);
                 
                     $auth = Zend_Auth::getInstance();
@@ -33,8 +33,32 @@ class LoginController extends Zend_Controller_Action
 	             
                     if($result->isValid())
                         {
+                        	$userStatus = new Application_Model_Users();
+
+                        	$emailcheck = strstr($userName, '@', true);
+                        	if($emailcheck!=null)
+                        	{
+                        		$where = "emailID = '$userName'";
+                        		
+                        	}
+                        	else
+                        	{
+                        		$where = "userName = '$userName'";
+                        	}
+
+                        	$data = $userStatus->fetchRow($where)->toArray();
+
+                        	
+                        	if($data['status'] == 1)
+                        	{
+                        		$this->_redirect('home/index');
+                        	}
+                        	else
+                        	{
+                        		$form->populate($formData);
+                            $this->view->SignUpError = "yuor account is not activated";
+                        	}
                    
-                            $this->_redirect('home/index');
                         }
                     else
                         {
@@ -47,8 +71,8 @@ class LoginController extends Zend_Controller_Action
                 {
                     $form->populate($formData);
                 }
-    }
-}
+    		}
+	}
 
     private function getAuthAdapter()
     {
@@ -57,22 +81,28 @@ class LoginController extends Zend_Controller_Action
         
         if(isset($_POST['userName']))
         {
-        echo $_POST['userName'];
-        $temp = explode('@', $_POST['userName']);
-        print_r($temp);
-        die();
-        
-    }
-        $auth->setTableName('users')
-             ->setIdentityColumn('userName')
-             ->setCredentialColumn('password');  
 
-        $auth->setTableName('users')
-             ->setIdentityColumn('userName')
-             ->setCredentialColumn('password');      
-        
-        return $auth;
+        	$user = strstr($_POST['userName'], '@', true); // As of PHP 5.3.0
+			
+			if ($user!=null)
+			{
+				$auth->setTableName('users')
+             	->setIdentityColumn('emailID')
+             	->setCredentialColumn('password'); 
+             	return $auth; 
+			}
+			
+			else
+			{       
+			    
+			    $auth->setTableName('users')
+        	    ->setIdentityColumn('userName')
+            	->setCredentialColumn('password');
+		        return $auth;
+   		 	}
+   		}
     }
+
 
 }
 
