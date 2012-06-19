@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 12, 2012 at 11:40 AM
+-- Generation Time: Jun 19, 2012 at 06:02 AM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -31,6 +31,36 @@ CREATE TABLE IF NOT EXISTS `achievements` (
   `userID` int(11) NOT NULL,
   `title` varchar(300) NOT NULL,
   `description` text NOT NULL,
+  `certificate` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `certifications`
+--
+
+CREATE TABLE IF NOT EXISTS `certifications` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `dateOfCompletion` date NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE IF NOT EXISTS `contact` (
+  `userID` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -44,9 +74,11 @@ CREATE TABLE IF NOT EXISTS `education` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
   `degree` varchar(300) NOT NULL,
+  `regNo` varchar(255) NOT NULL,
   `from_date` date NOT NULL,
   `to_date` date NOT NULL,
-  `major_sub` text NOT NULL,
+  `description` text NOT NULL,
+  `recommendationLetter` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -63,6 +95,85 @@ CREATE TABLE IF NOT EXISTS `experience` (
   `designation` varchar(300) NOT NULL,
   `from_date` date NOT NULL,
   `to_date` date NOT NULL,
+  `responsibilities` text NOT NULL,
+  `recommendationLetter` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `profile`
+--
+
+CREATE TABLE IF NOT EXISTS `profile` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `firstName` varchar(255) DEFAULT NULL,
+  `lastName` varchar(255) DEFAULT NULL,
+  `dateOfBirth` date DEFAULT NULL,
+  `profilePic` int(11) DEFAULT NULL,
+  `website` varchar(255) NOT NULL,
+  `objective` text NOT NULL,
+  `address` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `publications`
+--
+
+CREATE TABLE IF NOT EXISTS `publications` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `journal` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `recommendations`
+--
+
+CREATE TABLE IF NOT EXISTS `recommendations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `recommendedBy` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `references`
+--
+
+CREATE TABLE IF NOT EXISTS `references` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `designation` varchar(255) NOT NULL,
+  `organization` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `seminars`
+--
+
+CREATE TABLE IF NOT EXISTS `seminars` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `date` date NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
@@ -77,7 +188,21 @@ CREATE TABLE IF NOT EXISTS `skills` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
   `skill` varchar(300) NOT NULL,
-  `description` text NOT NULL,
+  `grade` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suggestions`
+--
+
+CREATE TABLE IF NOT EXISTS `suggestions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `suggestionBy` int(11) NOT NULL,
+  `suggestion` text NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -103,6 +228,7 @@ CREATE TABLE IF NOT EXISTS `userinterests` (
 CREATE TABLE IF NOT EXISTS `userpictures` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `pictureName` varchar(300) DEFAULT NULL,
+  `title` varchar(255) NOT NULL,
   `userID` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='User pictures' AUTO_INCREMENT=1 ;
@@ -114,15 +240,27 @@ CREATE TABLE IF NOT EXISTS `userpictures` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
+  `userID` int(11) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(300) NOT NULL,
+  `password` varchar(300) NOT NULL,
+  `emailID` varchar(20) NOT NULL,
+  `roll` bit(1) NOT NULL,
+  PRIMARY KEY (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `views`
+--
+
+CREATE TABLE IF NOT EXISTS `views` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstName` varchar(255) NOT NULL,
-  `lastName` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `education` int(11) DEFAULT NULL,
-  `website` varchar(400) DEFAULT NULL,
-  `experience` text,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `username` (`username`)
+  `userID` int(11) NOT NULL,
+  `viewedBy` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
