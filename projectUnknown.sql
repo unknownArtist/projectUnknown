@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 19, 2012 at 06:02 AM
+-- Generation Time: Jun 19, 2012 at 07:53 AM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -103,6 +103,21 @@ CREATE TABLE IF NOT EXISTS `experience` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `history`
+--
+
+CREATE TABLE IF NOT EXISTS `history` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `sigin` datetime NOT NULL,
+  `signout` datetime NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `profile`
 --
 
@@ -115,7 +130,11 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `profilePic` int(11) DEFAULT NULL,
   `website` varchar(255) NOT NULL,
   `objective` text NOT NULL,
-  `address` text NOT NULL,
+  `country` text NOT NULL,
+  `region` varchar(255) NOT NULL,
+  `city` varchar(255) NOT NULL,
+  `street` varchar(255) NOT NULL,
+  `house` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -244,6 +263,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `userName` varchar(300) NOT NULL,
   `password` varchar(300) NOT NULL,
   `emailID` varchar(20) NOT NULL,
+  `status` bit(1) NOT NULL,
   `roll` bit(1) NOT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
