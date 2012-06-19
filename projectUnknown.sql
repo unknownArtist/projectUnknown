@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 15, 2012 at 11:31 AM
+-- Generation Time: Jun 19, 2012 at 05:18 AM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -74,6 +74,7 @@ CREATE TABLE IF NOT EXISTS `education` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userID` int(11) NOT NULL,
   `degree` varchar(300) NOT NULL,
+  `regNo` varchar(255) NOT NULL,
   `from_date` date NOT NULL,
   `to_date` date NOT NULL,
   `description` text NOT NULL,
@@ -245,6 +246,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `emailID` varchar(20) NOT NULL,
   `roll` bit(1) NOT NULL,
   PRIMARY KEY (`userID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `views`
+--
+
+CREATE TABLE IF NOT EXISTS `views` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `viewedBy` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
