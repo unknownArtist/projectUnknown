@@ -19,7 +19,8 @@
         <controllerFile controllerName="SignUp">
           <actionMethod actionName="index"/>
         </controllerFile>
-      </controllersDirectory>
+       
+</controllersDirectory>
       <formsDirectory>
         <formFile formName="Login"/>
       </formsDirectory>
@@ -44,6 +45,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Login">
             <viewScriptFile forActionName="logout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Search">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

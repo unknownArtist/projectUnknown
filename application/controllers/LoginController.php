@@ -61,7 +61,7 @@ class LoginController extends Zend_Controller_Action
                         	else
                         	{
                         		$form->populate($formData);
-                            $this->view->SignUpError = "yuor account is not activated";
+                                $this->view->SignUpError = "yuor account is not activated";
                         	}
                    
                         }
