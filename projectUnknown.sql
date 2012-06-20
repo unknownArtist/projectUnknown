@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 19, 2012 at 07:53 AM
+-- Generation Time: Jun 19, 2012 at 12:03 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -126,6 +126,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `userID` int(11) NOT NULL,
   `firstName` varchar(255) DEFAULT NULL,
   `lastName` varchar(255) DEFAULT NULL,
+  `gender` varchar(255) NOT NULL,
   `dateOfBirth` date DEFAULT NULL,
   `profilePic` int(11) DEFAULT NULL,
   `website` varchar(255) NOT NULL,
@@ -266,7 +267,14 @@ CREATE TABLE IF NOT EXISTS `users` (
   `status` bit(1) NOT NULL,
   `roll` bit(1) NOT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userID`, `userName`, `password`, `emailID`, `status`, `roll`) VALUES
+(1, 'gufran', '123456', 'gufran@hotmail.com', b'1', b'0');
 
 -- --------------------------------------------------------
 

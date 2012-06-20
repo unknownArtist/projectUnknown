@@ -51,6 +51,11 @@ class LoginController extends Zend_Controller_Action
                         	
                         	if($data['status'] == 1)
                         	{
+                        		$userData = new Zend_Session_Namespace('Default');
+                        		$userData->userID = $data['userID'];
+                        		$userData->userName = $data['userName'];
+
+
                         		$this->_redirect('home/index');
                         	}
                         	else
@@ -71,8 +76,8 @@ class LoginController extends Zend_Controller_Action
                 {
                     $form->populate($formData);
                 }
-    		}
-	}
+    	}	
+    }
 
     private function getAuthAdapter()
     {
@@ -103,6 +108,14 @@ class LoginController extends Zend_Controller_Action
    		}
     }
 
+    public function logoutAction()
+    {
+        Zend_Auth::getInstance()->clearIdentity();
+        $this->_redirect('index');
+    }
+
 
 }
+
+
 
