@@ -89,7 +89,7 @@ class LoginController extends Zend_Controller_Action
 
         	$user = strstr($_POST['userName'], '@', true); // As of PHP 5.3.0
 			
-			if ($user!= null)
+			if ($user!= NULL)
 			{
 				$auth->setTableName('users')
              	->setIdentityColumn('emailID')
