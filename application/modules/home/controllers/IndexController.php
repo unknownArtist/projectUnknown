@@ -5,7 +5,7 @@ class Home_IndexController extends Zend_Controller_Action
 
     public function init()
     {
-<<<<<<< HEAD
+
       $auth = Zend_Auth::getInstance();
     if (!($auth->hasIdentity())) 
     {
@@ -16,10 +16,7 @@ class Home_IndexController extends Zend_Controller_Action
         
     }
 
-=======
-	
->>>>>>> 35f2ea32a704e62006d07363bee87a02237da55c
-    }
+  }
 
     public function indexAction()
     {

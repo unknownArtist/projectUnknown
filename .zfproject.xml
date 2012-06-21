@@ -19,8 +19,7 @@
         <controllerFile controllerName="SignUp">
           <actionMethod actionName="index"/>
         </controllerFile>
-       
-</controllersDirectory>
+      </controllersDirectory>
       <formsDirectory>
         <formFile formName="Login"/>
       </formsDirectory>
@@ -28,7 +27,21 @@
       <modelsDirectory>
         <modelFile modelName="Users"/>
       </modelsDirectory>
-      <modulesDirectory enabled="false"/>
+      <modulesDirectory enabled="false">
+        <moduleDirectory moduleName="user">
+          <apisDirectory enabled="false"/>
+          <configsDirectory enabled="false"/>
+          <controllersDirectory/>
+          <formsDirectory enabled="false"/>
+          <layoutsDirectory enabled="false"/>
+          <modelsDirectory/>
+          <viewsDirectory>
+            <viewScriptsDirectory/>
+            <viewHelpersDirectory/>
+            <viewFiltersDirectory/>
+          </viewsDirectory>
+        </moduleDirectory>
+      </modulesDirectory>
       <viewsDirectory>
         <viewScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Index">
