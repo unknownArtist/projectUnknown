@@ -20,6 +20,7 @@
         </controllerFile>
       </controllersDirectory>
       <formsDirectory>
+<<<<<<< HEAD
         <formFile formName="Signup"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
@@ -27,6 +28,13 @@
         <dbTableDirectory>
           <dbTableFile dbTableName="Users"/>
         </dbTableDirectory>
+=======
+        <formFile formName="Login"/>
+      </formsDirectory>
+      <layoutsDirectory enabled="false"/>
+      <modelsDirectory>
+        <modelFile modelName="Users"/>
+>>>>>>> abadf20325a4e9634af2a1bb211270aa767b8121
       </modelsDirectory>
       <modulesDirectory enabled="false"/>
       <viewsDirectory>
