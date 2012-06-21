@@ -51,12 +51,17 @@ class LoginController extends Zend_Controller_Action
                         	
                         	if($data['status'] == 1)
                         	{
-                        		$this->_redirect('home/index');
+                        		$userData = new Zend_Session_Namespace('Default');
+                        		$userData->userID = $data['userID'];
+                        		$userData->userName = $data['userName'];
+
+
+                        		$this->_redirect('user/index');
                         	}
                         	else
                         	{
                         		$form->populate($formData);
-                            $this->view->SignUpError = "yuor account is not activated";
+                                $this->view->SignUpError = "yuor account is not activated";
                         	}
                    
                         }
@@ -71,8 +76,8 @@ class LoginController extends Zend_Controller_Action
                 {
                     $form->populate($formData);
                 }
-    		}
-	}
+    	}	
+    }
 
     private function getAuthAdapter()
     {
@@ -84,7 +89,7 @@ class LoginController extends Zend_Controller_Action
 
         	$user = strstr($_POST['userName'], '@', true); // As of PHP 5.3.0
 			
-			if ($user!=null)
+			if ($user!= NULL)
 			{
 				$auth->setTableName('users')
              	->setIdentityColumn('emailID')
@@ -103,6 +108,14 @@ class LoginController extends Zend_Controller_Action
    		}
     }
 
+    public function logoutAction()
+    {
+        Zend_Auth::getInstance()->clearIdentity();
+        $this->_redirect('index');
+    }
+
 
 }
+
+
 

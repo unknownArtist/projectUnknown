@@ -5,7 +5,10 @@ class IndexController extends Zend_Controller_Action
 
     public function init()
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> d8bdd793f39085a11bf38573d01a1032aae85938
     }
 
     public function indexAction()
@@ -77,6 +80,13 @@ class IndexController extends Zend_Controller_Action
 
 
 
+
+
+
+    public function insertProfileAction()
+    {
+        // action body
+    }
 
 
 
