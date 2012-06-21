@@ -16,7 +16,12 @@ class Home_IndexController extends Zend_Controller_Action
         
     }
 
+<<<<<<< HEAD
   }
+=======
+
+    }
+>>>>>>> c6db08d377659b1e89eddbfffa0e9adf4c9c2e8e
 
     public function indexAction()
     {
