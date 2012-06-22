@@ -34,6 +34,7 @@
         <formFile formName="Seminars"/>
         <formFile formName="Skills"/>
         <formFile formName="UserPic"/>
+        <formFile formName="Languages"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>

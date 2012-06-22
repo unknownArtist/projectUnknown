@@ -55,6 +55,10 @@ class User_IndexController extends Zend_Controller_Action
         $formcSkills = new Application_Form_Skills();
         $this->view->SkillsForm = $formcSkills;
 
+        //.........Languages form........
+        $formcLanguages = new Application_Form_Languages();
+        $this->view->LanguagesForm = $formcLanguages;
+
 
  		
  		if($this->getRequest()->isPost())
