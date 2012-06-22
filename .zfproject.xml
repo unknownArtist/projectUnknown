@@ -24,6 +24,15 @@
       <formsDirectory>
         <formFile formName="Login"/>
         <formFile formName="Profile"/>
+        <formFile formName="Education"/>
+        <formFile formName="Achievements"/>
+        <formFile formName="Certifications"/>
+        <formFile formName="Contacts"/>
+        <formFile formName="Experience"/>
+        <formFile formName="Publications"/>
+        <formFile formName="Refrences"/>
+        <formFile formName="Seminars"/>
+        <formFile formName="Skills"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>

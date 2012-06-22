@@ -10,10 +10,48 @@ class User_IndexController extends Zend_Controller_Action
 	public function indexAction()
 	{
 		
-		//$form = new Application_Form_Login();
 		
+		//.........profile form........
     	$form = new Application_Form_Profile();
 		$this->view->profileForm = $form;
+
+        //.........education form........
+        $formedu = new Application_Form_Education();
+        $this->view->eduForm = $formedu;
+
+        //.........Achievements form........
+        $formach = new Application_Form_Achievements();
+        $this->view->achForm = $formach;
+
+        //.........Certifications form........
+        $formcert = new Application_Form_Certifications();
+        $this->view->certForm = $formcert;
+
+        //.........Contacts form........
+        $formcContacts = new Application_Form_Contacts();
+        $this->view->ContactsForm = $formcContacts;
+
+        //.........Experience form........
+        $formcExperience = new Application_Form_Experience();
+        $this->view->ExperienceForm = $formcExperience;
+
+        //.........Publications form........
+        $formcPublications = new Application_Form_Publications();
+        $this->view->PublicationsForm = $formcPublications;
+
+        //.........Refrences form........
+        $formcRefrences = new Application_Form_Refrences();
+        $this->view->RefrencesForm = $formcRefrences;
+
+        //.........Seminars form........
+        $formcSeminars = new Application_Form_Seminars();
+        $this->view->SeminarsForm = $formcSeminars;
+
+        //.........Skills form........
+        $formcSkills = new Application_Form_Skills();
+        $this->view->SkillsForm = $formcSkills;
+
+
  		
  		if($this->getRequest()->isPost())
          {
@@ -45,11 +83,11 @@ class User_IndexController extends Zend_Controller_Action
                 if($insertVal->update($data,$where))
                 {
                     echo "data updated";
-                    $this->_redirect('home');
+                    //$this->_redirect('home');
                 }
                 else
                 {
-                    echo "not inserted";
+                    echo "not Updated";
                 }
             }
             else
@@ -61,9 +99,6 @@ class User_IndexController extends Zend_Controller_Action
 
          else
          {
-         	//echo "error";
-            
-            
             $tmp = new Application_Model_Profile();
             $userData = new Zend_Session_Namespace('Default');
         		
@@ -78,12 +113,4 @@ class User_IndexController extends Zend_Controller_Action
 	}
 
 
-
-	public function insertProfileAction()
-    {
-
-		
-
-       
-    }
 }
