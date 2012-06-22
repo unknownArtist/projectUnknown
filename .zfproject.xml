@@ -33,6 +33,7 @@
         <formFile formName="Refrences"/>
         <formFile formName="Seminars"/>
         <formFile formName="Skills"/>
+        <formFile formName="UserPic"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>

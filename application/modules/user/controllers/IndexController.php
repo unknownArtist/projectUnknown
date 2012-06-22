@@ -15,9 +15,13 @@ class User_IndexController extends Zend_Controller_Action
     	$form = new Application_Form_Profile();
 		$this->view->profileForm = $form;
 
-        //.........education form........
-        $formedu = new Application_Form_Education();
-        $this->view->eduForm = $formedu;
+        //.........UserPic form........
+        $formUserPic = new Application_Form_UserPic();
+        $this->view->UserPicForm = $formUserPic;
+
+        //.........Education form........
+        $formEducation = new Application_Form_Education();
+        $this->view->EducationForm = $formEducation;
 
         //.........Achievements form........
         $formach = new Application_Form_Achievements();
