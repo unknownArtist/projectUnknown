@@ -5,6 +5,20 @@ class Application_Form_Skills extends Zend_Form
 
     public function init()
     {
+      $data = array(
+
+        '1' => '1',
+        '2' => '2',
+        '3' => '3',
+        '4' => '4',
+        '5' => '5',
+        '6' => '6',
+        '7' => '7',
+        '8' => '8',
+        '9' => '9',
+        '10' => '10',
+        );
+
        	$this->setMethod('post');
         $this->setAction('');
 
@@ -12,15 +26,12 @@ class Application_Form_Skills extends Zend_Form
         $skill->setLabel('skill')
              ->setRequired(TRUE);
 
-        $grade = new Zend_Form_Element_Text('grade');
+        $grade = new Zend_Form_Element_Select('grade');
+
         $grade->setLabel('grade')
-             ->setRequired(TRUE);
-
-        $score = new Zend_Form_Element_Select('score');
-
-        $score->setLabel('score')
-              ->setMultiOptions(array('1'=>'1', '2'=>'2'))
-              ->setRequired(true)->addValidator('NotEmpty', true);
+              ->setMultiOptions($data)
+              ->setRequired(true)
+              ->addValidator('NotEmpty', true);
 
           
         $submitSkills = new Zend_Form_Element_Submit('Save');
@@ -29,7 +40,6 @@ class Application_Form_Skills extends Zend_Form
 
             $skill,
             $grade,
-            //$score
             $submitSkills,
 
             ));

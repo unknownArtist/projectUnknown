@@ -47,6 +47,7 @@
           <formsDirectory enabled="false">
             <formFile formName="Test"/>
             <formFile formName="Profile"/>
+            <formFile formName="Tset"/>
           </formsDirectory>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory/>
