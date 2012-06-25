@@ -10,6 +10,7 @@
       <controllersDirectory>
         <controllerFile controllerName="Index">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="insertProfile"/>
         </controllerFile>
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="Login">
@@ -17,6 +18,9 @@
           <actionMethod actionName="logout"/>
         </controllerFile>
         <controllerFile controllerName="SignUp">
+          <actionMethod actionName="index"/>
+        </controllerFile>
+        <controllerFile controllerName="ActivateUser">
           <actionMethod actionName="index"/>
         </controllerFile>
       </controllersDirectory>
@@ -32,7 +36,9 @@
           <apisDirectory enabled="false"/>
           <configsDirectory enabled="false"/>
           <controllersDirectory/>
-          <formsDirectory enabled="false"/>
+          <formsDirectory>
+            <formFile formName="Profile"/>
+          </formsDirectory>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory/>
           <viewsDirectory>
@@ -60,6 +66,12 @@
             <viewScriptFile forActionName="logout"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Search">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Index">
+            <viewScriptFile forActionName="insertProfile"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="ActivateUser">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
