@@ -45,17 +45,17 @@ public function init()
             if($form->isValid($formData))
             {
                 $data = array(
-                'firstName' => $form->getValue('firstName'),
-                'lastName' => $form->getValue('lastName'),
-                'dateOfBirth' => $form->getValue('dateOfBirth'),
-                'profilePic' => $form->getValue('profilePic'),
-                'website' => $form->getValue('website'),
-                'objective' => $form->getValue('objective'),
-                'country'    => $form->getValue('country'),
-                'region'    => $form->getValue('region'),
-                'city'    => $form->getValue('city'),
-                'street'    => $form->getValue('street'),
-                'house'    => $form->getValue('house'),
+                'firstName'     => $form->getValue('firstName'),
+                'lastName'      => $form->getValue('lastName'),
+                'dateOfBirth'   => $form->getValue('dateOfBirth'),
+                'profilePic'    => $form->getValue('profilePic'),
+                'website'       => $form->getValue('website'),
+                'objective'     => $form->getValue('objective'),
+                'country'       => $form->getValue('country'),
+                'region'        => $form->getValue('region'),
+                'city'          => $form->getValue('city'),
+                'street'        => $form->getValue('street'),
+                'house'         => $form->getValue('house'),
                 
                 );
 
