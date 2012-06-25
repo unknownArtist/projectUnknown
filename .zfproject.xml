@@ -20,6 +20,9 @@
         <controllerFile controllerName="SignUp">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="ActivateUser">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory>
 <<<<<<< HEAD
@@ -33,6 +36,17 @@
 =======
         <formFile formName="Login"/>
         <formFile formName="Profile"/>
+        <formFile formName="Education"/>
+        <formFile formName="Achievements"/>
+        <formFile formName="Certifications"/>
+        <formFile formName="Contacts"/>
+        <formFile formName="Experience"/>
+        <formFile formName="Publications"/>
+        <formFile formName="Refrences"/>
+        <formFile formName="Seminars"/>
+        <formFile formName="Skills"/>
+        <formFile formName="UserPic"/>
+        <formFile formName="Languages"/>
       </formsDirectory>
       <layoutsDirectory enabled="false"/>
       <modelsDirectory>
@@ -48,9 +62,15 @@
           <apisDirectory enabled="false"/>
           <configsDirectory enabled="false"/>
           <controllersDirectory/>
+<<<<<<< HEAD
+          <formsDirectory>
+            <formFile formName="Profile"/>
+=======
           <formsDirectory enabled="false">
             <formFile formName="Test"/>
             <formFile formName="Profile"/>
+            <formFile formName="Tset"/>
+>>>>>>> 65ead030eea6e5a1d5f33fce7c07a0e6f0e51e19
           </formsDirectory>
           <layoutsDirectory enabled="false"/>
           <modelsDirectory/>
@@ -84,6 +104,12 @@
           <viewControllerScriptsDirectory forControllerName="Index">
             <viewScriptFile forActionName="insertProfile"/>
           </viewControllerScriptsDirectory>
+<<<<<<< HEAD
+          <viewControllerScriptsDirectory forControllerName="ActivateUser">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+=======
+>>>>>>> 65ead030eea6e5a1d5f33fce7c07a0e6f0e51e19
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
         <viewFiltersDirectory enabled="false"/>
