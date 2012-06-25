@@ -24,8 +24,8 @@ public function init()
         $this->view->EducationForm = $formEducation;
 
         //.........Achievements form........
-        $formach = new Application_Form_Achievements();
-        $this->view->achForm = $formach;
+        $formAchievements = new Application_Form_Achievements();
+        $this->view->AchievementsForm = $formAchievements;
 
         //.........Certifications form........
         $formcert = new Application_Form_Certifications();
