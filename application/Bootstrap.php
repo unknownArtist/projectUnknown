@@ -15,5 +15,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
     Zend_Registry::set('config.recaptcha', $this->options['recaptcha']);
      }
 
+ // protected function _initDb()  
+ //  {  
+ //    if ($this->hasPluginResource("db")) {  
+ //      $dbResource = $this->getPluginResource("db");  
+ //      $db = $dbResource->getDbAdapter();  
+ //      Zend_Registry::set("db", $db);  
+ //    }  
+ //  }  
 }
 
