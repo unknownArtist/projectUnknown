@@ -52,6 +52,14 @@ class Application_Form_Profile extends Zend_Form
         $house->setLabel('house')
              ->setRequired(FALSE);
 
+        
+        $profilePic    = new Zend_Form_Element_File('profilePic');
+        $profilePic->setLabel('Select the file to upload:')
+                      ->setDestination(APPLICATION_PATH.'/../public/images')
+                      ->addValidator('Count', false, 1) // ensure only 1 file
+                      ->addValidator('Size', false, 102400) // limit to 1MB
+                      ->addValidator('Extension', false, 'jpg,jpeg,png,gif');
+        
        
              
         $submitprofile = new Zend_Form_Element_Submit('Save');
@@ -69,6 +77,7 @@ class Application_Form_Profile extends Zend_Form
             $city,
             $street,
             $house,
+            $profilePic,
             $submitprofile,
 
             ));

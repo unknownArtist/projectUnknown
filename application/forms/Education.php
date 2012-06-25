@@ -8,8 +8,8 @@ class Application_Form_Education extends Zend_Form
        	$this->setMethod('post');
         $this->setAction('#');
 
-        $digree = new Zend_Form_Element_Text('digree');
-        $digree->setLabel('digree')
+        $degree = new Zend_Form_Element_Text('degree');
+        $degree->setLabel('degree')
              ->setRequired(TRUE);
 
         $regNo = new Zend_Form_Element_Text('regNo');
@@ -47,7 +47,7 @@ class Application_Form_Education extends Zend_Form
 
         $this->addElements(array(
 
-            $digree,
+            $degree,
             $regNo,
             $fromDate,
             $toDate,

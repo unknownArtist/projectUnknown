@@ -56,7 +56,7 @@ class LoginController extends Zend_Controller_Action
                         		$userData->userName = $data['userName'];
 
 
-                        		$this->_redirect('index/index');
+                        		$this->_redirect('index');
                         	}
                         	else
                         	{
@@ -111,7 +111,7 @@ class LoginController extends Zend_Controller_Action
     public function logoutAction()
     {
         Zend_Auth::getInstance()->clearIdentity();
-        $this->_redirect('index');
+        $this->_redirect('login');
     }
 
 
