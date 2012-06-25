@@ -112,7 +112,7 @@ public function init()
                 
             $where = "userID = $userData->userID";
 
-            $data = $tmp->fetchRow($where)->toArray();
+            $data = $tmp->fetchAll($where)->toArray();
             $form->populate($data);
             
          }
