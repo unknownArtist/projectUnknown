@@ -56,7 +56,7 @@ class LoginController extends Zend_Controller_Action
                         		$userData->userName = $data['userName'];
 
 
-                        		$this->_redirect('home/index');
+                        		$this->_redirect('user/index');
                         	}
                         	else
                         	{
