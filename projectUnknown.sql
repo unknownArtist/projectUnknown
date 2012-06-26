@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 19, 2012 at 12:03 PM
+-- Generation Time: Jun 26, 2012 at 04:09 PM
 -- Server version: 5.5.20
 -- PHP Version: 5.3.10
 
@@ -33,7 +33,14 @@ CREATE TABLE IF NOT EXISTS `achievements` (
   `description` text NOT NULL,
   `certificate` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `achievements`
+--
+
+INSERT INTO `achievements` (`id`, `userID`, `title`, `description`, `certificate`) VALUES
+(2, 1, 'Achiments', 'test', '');
 
 -- --------------------------------------------------------
 
@@ -48,7 +55,14 @@ CREATE TABLE IF NOT EXISTS `certifications` (
   `dateOfCompletion` date NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `certifications`
+--
+
+INSERT INTO `certifications` (`id`, `userID`, `title`, `dateOfCompletion`, `description`) VALUES
+(1, 1, 'certifications', '2012-04-21', 'testing');
 
 -- --------------------------------------------------------
 
@@ -62,7 +76,14 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `title` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`userID`, `id`, `title`, `contact`) VALUES
+(1, 1, 'cell', '12345');
 
 -- --------------------------------------------------------
 
@@ -75,12 +96,19 @@ CREATE TABLE IF NOT EXISTS `education` (
   `userID` int(11) NOT NULL,
   `degree` varchar(300) NOT NULL,
   `regNo` varchar(255) NOT NULL,
-  `from_date` date NOT NULL,
-  `to_date` date NOT NULL,
+  `fromDate` date NOT NULL,
+  `toDate` date NOT NULL,
   `description` text NOT NULL,
   `recommendationLetter` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `education`
+--
+
+INSERT INTO `education` (`id`, `userID`, `degree`, `regNo`, `fromDate`, `toDate`, `description`, `recommendationLetter`) VALUES
+(1, 1, 'btn', 'f005', '2005-07-01', '2009-07-01', 'telecom', '');
 
 -- --------------------------------------------------------
 
@@ -93,12 +121,19 @@ CREATE TABLE IF NOT EXISTS `experience` (
   `userID` int(11) NOT NULL,
   `organization` varchar(300) NOT NULL,
   `designation` varchar(300) NOT NULL,
-  `from_date` date NOT NULL,
-  `to_date` date NOT NULL,
+  `fromDate` date NOT NULL,
+  `toDate` date NOT NULL,
   `responsibilities` text NOT NULL,
   `recommendationLetter` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `experience`
+--
+
+INSERT INTO `experience` (`id`, `userID`, `organization`, `designation`, `fromDate`, `toDate`, `responsibilities`, `recommendationLetter`) VALUES
+(1, 1, 'comsats ', 'software engr ', '2005-07-01', '2009-07-01', 'sfsf', '');
 
 -- --------------------------------------------------------
 
@@ -118,6 +153,28 @@ CREATE TABLE IF NOT EXISTS `history` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `languages`
+--
+
+CREATE TABLE IF NOT EXISTS `languages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` int(11) NOT NULL,
+  `language` varchar(255) NOT NULL,
+  `grade` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `languages`
+--
+
+INSERT INTO `languages` (`id`, `userID`, `language`, `grade`) VALUES
+(1, 1, 'english', 8),
+(3, 0, 'dfdsg', 6);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `profile`
 --
 
@@ -126,18 +183,25 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `userID` int(11) NOT NULL,
   `firstName` varchar(255) DEFAULT NULL,
   `lastName` varchar(255) DEFAULT NULL,
-  `gender` varchar(255) NOT NULL,
+  `gender` varchar(255) DEFAULT NULL,
   `dateOfBirth` date DEFAULT NULL,
-  `profilePic` int(11) DEFAULT NULL,
-  `website` varchar(255) NOT NULL,
-  `objective` text NOT NULL,
-  `country` text NOT NULL,
+  `profilePic` varchar(255) DEFAULT NULL,
+  `website` varchar(255) DEFAULT NULL,
+  `objective` text,
+  `country` text,
   `region` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
   `street` varchar(255) NOT NULL,
   `house` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `profile`
+--
+
+INSERT INTO `profile` (`id`, `userID`, `firstName`, `lastName`, `gender`, `dateOfBirth`, `profilePic`, `website`, `objective`, `country`, `region`, `city`, `street`, `house`) VALUES
+(1, 1, 'Muhammad', 'Gufrann', 'male', '2009-01-02', '123.jpg', 'www.wwww', 'bvv', 'pakistan', 'KPK', 'abbtabad', 'st1', '343');
 
 -- --------------------------------------------------------
 
@@ -152,7 +216,14 @@ CREATE TABLE IF NOT EXISTS `publications` (
   `journal` varchar(255) NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `publications`
+--
+
+INSERT INTO `publications` (`id`, `userID`, `title`, `journal`, `description`) VALUES
+(1, 1, 'publications', 'asd', 'sadas');
 
 -- --------------------------------------------------------
 
@@ -181,7 +252,14 @@ CREATE TABLE IF NOT EXISTS `references` (
   `organization` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `references`
+--
+
+INSERT INTO `references` (`id`, `userID`, `name`, `designation`, `organization`, `contact`) VALUES
+(1, 1, 'teacher', 'prof', 'comsats', '1212');
 
 -- --------------------------------------------------------
 
@@ -196,7 +274,14 @@ CREATE TABLE IF NOT EXISTS `seminars` (
   `date` date NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `seminars`
+--
+
+INSERT INTO `seminars` (`id`, `userID`, `title`, `date`, `description`) VALUES
+(1, 1, 'seminar 1', '2012-01-01', 'gdfgdf');
 
 -- --------------------------------------------------------
 
@@ -210,7 +295,14 @@ CREATE TABLE IF NOT EXISTS `skills` (
   `skill` varchar(300) NOT NULL,
   `grade` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `skills`
+--
+
+INSERT INTO `skills` (`id`, `userID`, `skill`, `grade`) VALUES
+(1, 1, 'Csharp', 5);
 
 -- --------------------------------------------------------
 
