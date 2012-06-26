@@ -10,8 +10,9 @@ class Application_Form_Education extends Zend_Form
 
         $degree = new Zend_Form_Element_Text('degree');
         $degree->setLabel('degree')
-                ->addValidator('alnum')
-                ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                //->addValidator('alnum')
+                ->addValidator('regex', false, array('/^[a-zA-Z]/')
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('Kindly enter alplabets only')
                 ->setRequired(TRUE);
 
@@ -24,14 +25,13 @@ class Application_Form_Education extends Zend_Form
                         ->addValidator('date')
                         ->addErrorMessage('Kindly enter Date in YYYY-MM-DD format')
                         ->setRequired(TRUE);
-             ->setRequired(TRUE);
 
         $toDate = new Zend_Form_Element_Text('toDate');
         $toDate->setLabel('toDate')
                         ->addValidator('date')
                         ->addErrorMessage('Kindly enter Date in YYYY-MM-DD format')
                         ->setRequired(TRUE);
-             ->setRequired(TRUE);
+
 
         $description = new Zend_Form_Element_Text('description');
         $description->setLabel('description')

@@ -24,8 +24,9 @@ class Application_Form_Skills extends Zend_Form
 
         $skill = new Zend_Form_Element_Text('skill');
         $skill->setLabel('skill')
-                ->addValidator('alnum')
+                //->addValidator('alnum')
                 ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('please enter valid name')
                 ->setRequired(TRUE);
 

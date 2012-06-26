@@ -10,8 +10,9 @@ class Application_Form_Certifications extends Zend_Form
 
         $title = new Zend_Form_Element_Text('title');
         $title->setLabel('title')
-                ->addValidator('alnum')
+                //->addValidator('alnum')
                 ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('please enter alplanumaric only')
                 ->setRequired(TRUE);
 
