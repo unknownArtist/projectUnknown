@@ -10,7 +10,7 @@ class Application_Form_Signup extends Zend_Form
         $this->setMethod('post');
 
         $submit = NULL; 
-	      $firstName = $this->createElement('text','firstName');
+	    $firstName = $this->createElement('text','firstName');
         $firstName->setLabel('First Name:')
                   ->setRequired(false);
         $this->addElement($firstName);
@@ -25,14 +25,6 @@ class Application_Form_Signup extends Zend_Form
         $userName->setLabel('Username: *')
                  ->setRequired(true);
         $this->addElement($userName);
-
-        $password = rand(1000,5000); 
-        $password = $this->createElement('password','password');
-        // $password->setLabel('Password:')
-        //          ->addFilter('stripTags')
-        //          ->addFilter('stringTrim')
-        //          ->addValidator('StringLength', false, array(0,6));
-        $this->addElement($password); 
 
        
         $emailID = $this->createElement('text','emailID');
