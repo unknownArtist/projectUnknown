@@ -10,11 +10,17 @@ class Application_Form_Publications extends Zend_Form
 
         $title = new Zend_Form_Element_Text('title');
         $title->setLabel('title')
-             ->setRequired(TRUE);
+                ->addValidator('alnum')
+                ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                ->addErrorMessage('please enter a valid name')
+                ->setRequired(TRUE);
 
         $journal = new Zend_Form_Element_Text('journal');
         $journal->setLabel('journal')
-             ->setRequired(TRUE);
+                ->addValidator('alnum')
+                ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                ->addErrorMessage('please enter a valid name')
+                ->setRequired(TRUE);
 
         $description = new Zend_Form_Element_TextArea('description');
         $description->setLabel('description')

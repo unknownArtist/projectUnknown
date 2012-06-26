@@ -10,11 +10,16 @@ class Application_Form_Certifications extends Zend_Form
 
         $title = new Zend_Form_Element_Text('title');
         $title->setLabel('title')
-             ->setRequired(TRUE);
+                ->addValidator('alnum')
+                ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                ->addErrorMessage('please enter alplanumaric only')
+                ->setRequired(TRUE);
 
         $dateOfCompletion = new Zend_Form_Element_Text('dateOfCompletion');
         $dateOfCompletion->setLabel('dateOfCompletion')
-             ->setRequired(TRUE);
+                        ->addValidator('date')
+                        ->addErrorMessage('please enter Date in YYYY-MM-DD format')
+                        ->setRequired(TRUE);
 
         $description = new Zend_Form_Element_Text('description');
         $description->setLabel('description')
