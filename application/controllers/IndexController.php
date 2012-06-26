@@ -11,22 +11,40 @@ public function init()
     {
         
         $userData = new Zend_Session_Namespace('Default');
-        echo $userData->userID;
-        $tmp = new Application_Model_Profile();
-        
+        //echo $userData->userID;
         $where = "userID = $userData->userID";
 
+        $tmp = new Application_Model_Profile();
         $data = $tmp->fetchRow($where)->toArray();
         $this->view->userdata = $data;
 
-        /*
-        //.........UserPic form........
-        $formUserPic = new Application_Form_UserPic();
-        $this->view->UserPicForm = $formUserPic;
-
-        */
-
+        //---- achievements------
+        $tmp1 = new Application_Model_achievements();
+        //$where = "userID = $userData->userID";
+        $dataachievements = $tmp1->fetchAll($where)->toArray();
+        $this->view->achievementsdata = $dataachievements;
+      
+        //---- Certifications------
+        $tmp2 = new Application_Model_Certifications();
+        //$where = "userID = $userData->userID";
+        $dataCertifications = $tmp2->fetchAll($where)->toArray();
+        //print_r($dataCertifications);
+        //die();
+        $this->view->Certificationsdata = $dataCertifications;
         
+        //---- Certifications------
+        $tmp3 = new Application_Model_contacts();
+        //$where = "userID = $userData->userID";
+        $dataContacts = $tmp3->fetchAll($where)->toArray();
+        $this->view->Contactsdata = $dataContacts;
+
+        //------education-------
+        $tmp4 = new Application_Model_education();
+        //$where = "userID = $userData->userID";
+        $dataeducations = $tmp4->fetchAll($where)->toArray();
+        $this->view->educationdata = $dataeducations;
+        
+      
        
     
 
@@ -44,9 +62,14 @@ public function init()
 
             if($form->isValid($formData))
             {
+
+                if($form->getValue('profilePic'))
+                {
+
                 $data = array(
                 'firstName'     => $form->getValue('firstName'),
                 'lastName'      => $form->getValue('lastName'),
+                'gender'      => $form->getValue('gender'),
                 'dateOfBirth'   => $form->getValue('dateOfBirth'),
                 'profilePic'    => $form->getValue('profilePic'),
                 'website'       => $form->getValue('website'),
@@ -58,26 +81,47 @@ public function init()
                 'house'         => $form->getValue('house'),
                 
                 );
+                }
+
+            else
+                {
+
+                $data = array(
+                'firstName'     => $form->getValue('firstName'),
+                'lastName'      => $form->getValue('lastName'),
+                'gender'      => $form->getValue('gender'),
+                'dateOfBirth'   => $form->getValue('dateOfBirth'),
+                //'profilePic'    => $form->getValue('profilePic'),
+                'website'       => $form->getValue('website'),
+                'objective'     => $form->getValue('objective'),
+                'country'       => $form->getValue('country'),
+                'region'        => $form->getValue('region'),
+                'city'          => $form->getValue('city'),
+                'street'        => $form->getValue('street'),
+                'house'         => $form->getValue('house'),
+                );
+
+                }
 
                 $insertVal = new Application_Model_Profile();
-                
                 $userData = new Zend_Session_Namespace('Default');
-                
                 $where = "userID = $userData->userID";
+
+                $insertVal->update($data,$where);
                 
-                if($insertVal->update($data,$where))
-                {
-                    echo "data updated";
-                    $this->_redirect('index');
-                }
-                else
-                {
-                    echo "not Updated";
-                }
-            }
+                    
+                //     echo "data updated";
+                     $this->_redirect('index');
+                // }
+                // else
+                // {
+                //     echo "not Updated";
+                // }
+            }   
             else
             {
                 $form->populate($formData);
+
             }
 
          }
@@ -93,6 +137,7 @@ public function init()
             $data = $tmp->fetchRow($where)->toArray();
 
             $form->populate($data);
+            $this->view->hidden = $data;
             
          }
 
@@ -115,7 +160,6 @@ public function init()
                 $data = array(
                 'title' => $form->getValue('title'),
                 'description' => $form->getValue('description'),
-                'certificate' => $form->getValue('certificate'),
                 'userID'      => $userData->userID,
                 
                 );

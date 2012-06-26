@@ -72,6 +72,7 @@
 
 
 
+
 <br /><img src="/images/<?php echo $this->userdata['profilePic'];?>"
  width="200" height="200" alt=<?php echo $this->userdata['profilePic'];?> />
 <br />
@@ -87,3 +88,37 @@
 <?php echo "street = ". $this->userdata['street'];?><br />
 <?php echo "house = ". $this->userdata['house'];?><br />
 
+<!-- achievementsdata -->
+<br />
+<?php echo "Achievements"; ?><br />
+<?php foreach($this->achievementsdata as $t): ?>
+   <!--<img src="/images/<?php echo $t['certificate']?>" width="200" height="200"/> -->
+  <?php echo "title = ". $t['title']; ?><br />
+  <?php echo "description = ".$t['description'];?><br /><br />
+<?php endforeach; ?>
+
+<!-- Certificationsdata -->
+<?php echo "Certifications"; ?><br />
+<?php foreach($this->Certificationsdata as $t): ?>
+  <?php echo "title = ". $t['title']; ?><br />
+  <?php echo "date Of Completion = ".$t['dateOfCompletion'];?><br />
+  <?php echo "description = ".$t['description'];?><br /><br />
+<?php endforeach; ?>
+
+<!-- Contactsdata -->
+<?php echo "Contacts"; ?><br />
+<?php foreach($this->Contactsdata as $t): ?>
+  <?php echo "title = ". $t['title']; ?><br />
+  <?php echo "contact = ".$t['contact'];?><br /><br />
+<?php endforeach; ?>
+
+
+<!-- educationdata -->
+<?php echo "education"; ?><br />
+<?php foreach($this->educationdata as $t): ?>
+  <?php echo "degree = ". $t['degree']; ?><br />
+  <?php echo "regNo = ".$t['regNo'];?><br />
+  <?php echo "fromDate = ". $t['fromDate']; ?><br />
+  <?php echo "toDate = ". $t['toDate']; ?><br />
+  <?php echo "description = ". $t['description']; ?><br /><br />
+<?php endforeach; ?>

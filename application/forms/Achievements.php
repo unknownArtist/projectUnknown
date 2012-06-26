@@ -10,15 +10,14 @@ class Application_Form_Achievements extends Zend_Form
 
         $title = new Zend_Form_Element_Text('title');
         $title->setLabel('title')
+                  ->addValidator('alnum')
+                  ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                  ->addErrorMessage('Kindly enter alplanumaric only')
              ->setRequired(TRUE);
 
         $description = new Zend_Form_Element_Text('description');
         $description->setLabel('description')
              ->setRequired(TRUE);
-
-        $certificate = new Zend_Form_Element_Text('certificate');
-        $certificate->setLabel('certificate')
-             ->setRequired(FALSE);
        
              
         $submitAchievements = new Zend_Form_Element_Submit('Save');
@@ -27,7 +26,6 @@ class Application_Form_Achievements extends Zend_Form
 
             $title,
             $description,
-            $certificate,
             $submitAchievements,
 
             ));

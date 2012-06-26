@@ -10,7 +10,10 @@ class Application_Form_Contacts extends Zend_Form
 
         $title = new Zend_Form_Element_Text('title');
         $title->setLabel('title')
-             ->setRequired(TRUE);
+                ->addValidator('alnum')
+                ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                ->addErrorMessage('Kindly enter alplabets only')
+                ->setRequired(TRUE);
 
         $contact = new Zend_Form_Element_Text('contact');
         $contact->setLabel('contact')

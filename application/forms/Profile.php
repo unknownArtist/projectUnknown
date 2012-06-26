@@ -10,47 +10,60 @@ class Application_Form_Profile extends Zend_Form
 
         $firstName = new Zend_Form_Element_Text('firstName');
         $firstName->setLabel('firstName')
-             ->setRequired(TRUE);
+                  ->addValidator('alnum')
+                  ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                  ->addErrorMessage('Kindly enter alplabets only')
+                  ->setRequired(TRUE);
+
 
         $lastName = new Zend_Form_Element_Text('lastName');
         $lastName->setLabel('lastName')
-             ->setRequired(TRUE);
+                  ->addValidator('alnum')
+                  ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                  ->addErrorMessage('Kindly enter alplabets only')
+                  ->setRequired(TRUE);
 
         $dateOfBirth = new Zend_Form_Element_Text('dateOfBirth');
         $dateOfBirth->setLabel('dateOfBirth')
-             ->setRequired(FALSE);
+                  ->addValidator('date')
+                  ->addErrorMessage('Kindly enter Date in YYYY-MM-DD format')
+                    ->setRequired(TRUE);
 
         $profilePic = new Zend_Form_Element_Text('profilePic');
         $profilePic->setLabel('profilePic')
-             ->setRequired(FALSE);
+             ->setRequired(TRUE);
+
+        $gender = new Zend_Form_Element_Text('gender');
+        $gender->setLabel('gender')
+             ->setRequired(TRUE);
 
         $website = new Zend_Form_Element_Text('website');
         $website->setLabel('website')
-             ->setRequired(FALSE);
+             ->setRequired(TRUE);
 
         $objective = new Zend_Form_Element_TextArea('objective');
         $objective->setLabel('objective')
-             ->setRequired(FALSE);
+             ->setRequired(TRUE);
 
         $country = new Zend_Form_Element_Text('country');
         $country->setLabel('country')
-             ->setRequired(FALSE);
+             ->setRequired(TRUE);
 
         $region = new Zend_Form_Element_Text('region');
         $region->setLabel('region')
-             ->setRequired(FALSE);
+             ->setRequired(TRUE);
 
         $city = new Zend_Form_Element_Text('city');
         $city->setLabel('city')
-             ->setRequired(FALSE);
+             ->setRequired(TRUE);
 
         $street = new Zend_Form_Element_Text('street');
         $street->setLabel('street')
-             ->setRequired(FALSE);
+             ->setRequired(TRUE);
 
         $house = new Zend_Form_Element_Text('house');
         $house->setLabel('house')
-             ->setRequired(FALSE);
+             ->setRequired(TRUE);
 
         
         $profilePic    = new Zend_Form_Element_File('profilePic');
@@ -70,6 +83,7 @@ class Application_Form_Profile extends Zend_Form
             $lastName,
             $dateOfBirth,
             $profilePic,
+            $gender,
             $website,
             $objective,
             $country,
