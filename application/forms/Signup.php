@@ -34,7 +34,6 @@ class Application_Form_Signup extends Zend_Form
         $this->addElement($emailID);
 
 
-
         $recaptchaKeys = Zend_Registry::get('config.recaptcha');
         $recaptcha = new Zend_Service_ReCaptcha($recaptchaKeys['publickey'], $recaptchaKeys['privatekey'],
                                                 NULL, array('theme' => 'clean'));
