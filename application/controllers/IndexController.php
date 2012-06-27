@@ -4,6 +4,11 @@ class IndexController extends Zend_Controller_Action
 {
 public function init()
     {
+
+        if(!Zend_Auth::getInstance()->hasIdentity())
+        {
+            $this->_redirect('login');
+        }
         
     }
 
@@ -12,7 +17,7 @@ public function init()
         
         $userData = new Zend_Session_Namespace('Default');
         //echo $userData->userID;
-        $where = "userID = $userData->userID";
+        $where = "userID = '$userData->userID'";
 
         $tmp = new Application_Model_Profile();
         $data = $tmp->fetchRow($where)->toArray();
