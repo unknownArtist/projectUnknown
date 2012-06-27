@@ -10,6 +10,7 @@ public function init()
             $this->_redirect('login');
         }
         
+        
     }
 
     public function indexAction()

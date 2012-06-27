@@ -34,7 +34,8 @@ class LoginController extends Zend_Controller_Action
 	             
                     if($result->isValid())
                         {
-                        	$userStatus = new Application_Model_Users();
+                        	
+                            $userStatus = new Application_Model_Users();
 
                         	$emailcheck = strstr($userName, '@', true);
                         	if($emailcheck!=null)
