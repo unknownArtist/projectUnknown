@@ -10,15 +10,16 @@ class Application_Form_Experience extends Zend_Form
 
         $organization = new Zend_Form_Element_Text('organization');
         $organization->setLabel('organization')
-                ->addValidator('alnum')
-                ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                ->addValidator('regex', true, array('/^[a-zA-Z0-9_]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('Kindly enter alplanumaric only')
                 ->setRequired(TRUE);
 
         $designation = new Zend_Form_Element_Text('designation');
         $designation->setLabel('designation')
-                ->addValidator('alnum')
-                ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                //->addValidator('alnum')
+                ->addValidator('regex', true, array('/^[ a-zA-Z0-9]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('Kindly enter alplanumaric only')
                 ->setRequired(TRUE);
 

@@ -10,16 +10,18 @@ class Application_Form_Profile extends Zend_Form
 
         $firstName = new Zend_Form_Element_Text('firstName');
         $firstName->setLabel('firstName')
-                  ->addValidator('alnum')
+                  //->addValidator('alnum')
                   ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                   ->addErrorMessage('Kindly enter alplabets only')
                   ->setRequired(TRUE);
 
 
         $lastName = new Zend_Form_Element_Text('lastName');
         $lastName->setLabel('lastName')
-                  ->addValidator('alnum')
+                  //->addValidator('alnum')
                   ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                   ->addErrorMessage('Kindly enter alplabets only')
                   ->setRequired(TRUE);
 

@@ -4,73 +4,6 @@
                         'action'     =>  'logout',
                        )); ?>">Logout</a>
 
-<br /><a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'profile',
-                       )); ?>">Edit</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'achievements',
-                       )); ?>">Achievements</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'certifications',
-                       )); ?>">Certifications</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'contacts',
-                       )); ?>">contacts</a>
-   
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'education',
-                       )); ?>">education</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'experience',
-                       )); ?>">experience</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'languages',
-                       )); ?>">languages</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'publications',
-                       )); ?>">Publications</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'refrences',
-                       )); ?>">Refrences</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'seminars',
-                       )); ?>">Seminars</a>
-
-<a id="Logout" href="<?php echo $this->Url(
-                array(
-                        'controller' =>  'index',
-                        'action'     =>  'skills',
-                       )); ?>">Skills</a>
-
-
 
 
 <br /><img src="/images/<?php echo $this->userdata['profilePic'];?>"
@@ -87,38 +20,300 @@
 <?php echo "city = ". $this->userdata['city'];?><br />
 <?php echo "street = ". $this->userdata['street'];?><br />
 <?php echo "house = ". $this->userdata['house'];?><br />
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'profile',
+                       )); ?>">Edit</a><br />
+<?php echo "----------------------------------------";?><br />
+
 
 <!-- achievementsdata -->
-<br />
+<br /><br />
 <?php echo "Achievements"; ?><br />
+<?php echo "===================================================";?><br />
 <?php foreach($this->achievementsdata as $t): ?>
    <!--<img src="/images/<?php echo $t['certificate']?>" width="200" height="200"/> -->
   <?php echo "title = ". $t['title']; ?><br />
-  <?php echo "description = ".$t['description'];?><br /><br />
+  <?php echo "description = ".$t['description'];?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editachievements',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deleteachievements',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
 <?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'achievements',
+                       )); ?>">Add another Achievements</a>
+
 
 <!-- Certificationsdata -->
+<br /><br />
 <?php echo "Certifications"; ?><br />
+<?php echo "===================================================";?><br />
 <?php foreach($this->Certificationsdata as $t): ?>
   <?php echo "title = ". $t['title']; ?><br />
   <?php echo "date Of Completion = ".$t['dateOfCompletion'];?><br />
-  <?php echo "description = ".$t['description'];?><br /><br />
+  <?php echo "description = ".$t['description'];?><br />
+    <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editcertifications',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deletecertifications',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
 <?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'certifications',
+                       )); ?>">Add another Certifications</a>
 
 <!-- Contactsdata -->
+<br /><br />
 <?php echo "Contacts"; ?><br />
+<?php echo "===================================================";?><br />
 <?php foreach($this->Contactsdata as $t): ?>
   <?php echo "title = ". $t['title']; ?><br />
-  <?php echo "contact = ".$t['contact'];?><br /><br />
+  <?php echo "contact = ".$t['contact'];?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editcontacts',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deletecontacts',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
 <?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'contacts',
+                       )); ?>">Add another contacts</a>
 
 
 <!-- educationdata -->
+<br /><br />
 <?php echo "education"; ?><br />
+<?php echo "===================================================";?><br />
 <?php foreach($this->educationdata as $t): ?>
   <?php echo "degree = ". $t['degree']; ?><br />
   <?php echo "regNo = ".$t['regNo'];?><br />
   <?php echo "fromDate = ". $t['fromDate']; ?><br />
   <?php echo "toDate = ". $t['toDate']; ?><br />
-  <?php echo "description = ". $t['description']; ?><br /><br />
+  <?php echo "description = ". $t['description']; ?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editeducation',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deleteeducation',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
 <?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'education',
+                       )); ?>">Add another education</a>
+
+
+<!-- experiencedata -->
+<br /><br />
+<?php echo "experience"; ?><br />
+<?php echo "===================================================";?><br />
+<?php foreach($this->experiencedata as $t): ?>
+  <?php echo "organization = ". $t['organization']; ?><br />
+  <?php echo "designation = ".$t['designation'];?><br />
+  <?php echo "fromDate = ". $t['fromDate']; ?><br />
+  <?php echo "toDate = ". $t['toDate']; ?><br />
+  <?php echo "responsibilities = ". $t['responsibilities']; ?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editexperience',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deleteexperience',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
+<?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'experience',
+                       )); ?>">Add another experience</a>
+
+
+<!-- languagesdata -->
+<br /><br />
+<?php echo "languages"; ?><br />
+<?php echo "===================================================";?><br />
+<?php foreach($this->languagesdata as $t): ?>
+  <?php echo "language = ". $t['language']; ?><br />
+  <?php echo "grade = ".$t['grade'];?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editlanguages',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deletelanguages',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
+<?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'languages',
+                       )); ?>">Add another languages</a>
+
+
+<!-- publicationsdata -->
+<br /><br />
+<?php echo "publications"; ?><br />
+<?php echo "===================================================";?><br />
+<?php foreach($this->publicationsdata as $t): ?>
+  <?php echo "title = ". $t['title']; ?><br />
+  <?php echo "journal = ".$t['journal'];?><br />
+  <?php echo "description = ".$t['description'];?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editpublications',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deletepublications',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
+<?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'publications',
+                       )); ?>">Add another Publications</a>
+
+
+<!-- refrencesdata -->
+<br /><br />
+<?php echo "refrences"; ?><br />
+<?php echo "===================================================";?><br />
+<?php foreach($this->refrencesdata as $t): ?>
+  <?php echo "name = ". $t['name']; ?><br />
+  <?php echo "designation = ".$t['designation'];?><br />
+  <?php echo "organization = ".$t['organization'];?><br />
+  <?php echo "contact = ".$t['contact'];?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editrefrences',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deleterefrences',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
+<?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'refrences',
+                       )); ?>">Add another Refrences</a>
+
+
+<!-- seminarsdata -->
+<br /><br />
+<?php echo "seminars"; ?><br />
+<?php echo "===================================================";?><br />
+<?php foreach($this->seminarsdata as $t): ?>
+  <?php echo "title = ". $t['title']; ?><br />
+  <?php echo "date = ".$t['date'];?><br />
+  <?php echo "description = ".$t['description'];?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editseminars',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deleteseminars',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
+<?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'seminars',
+                       )); ?>">Add another Seminars</a>
+
+
+<!-- skillsdata -->
+<br /><br />
+<?php echo "skills"; ?><br />
+<?php echo "===================================================";?><br />
+<?php foreach($this->skillsdata as $t): ?>
+  <?php echo "skill = ". $t['skill']; ?><br />
+  <?php echo "grade = ".$t['grade'];?><br />
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'editskills',
+                            'id'         =>   $t['id'],
+                            )); ?>">Edit</a>
+  <a id="editprofile" href="<?php echo $this->Url(
+                            array(
+                            'controller' =>  'index',
+                            'action'     =>  'deleteskills',
+                            'id'         =>   $t['id'],
+                            )); ?>">Delete</a><br />
+  <?php echo "----------------------------------------";?><br />
+<?php endforeach; ?>
+<a id="Logout" href="<?php echo $this->Url(
+                array(
+                        'controller' =>  'index',
+                        'action'     =>  'skills',
+                       )); ?>">Add another Skills</a>

@@ -10,22 +10,25 @@ class Application_Form_Refrences extends Zend_Form
 
         $name = new Zend_Form_Element_Text('name');
         $name->setLabel('name')
-                ->addValidator('alnum')
+                //->addValidator('alnum')
                 ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('please enter valid name')
                 ->setRequired(TRUE);
 
         $designation = new Zend_Form_Element_Text('designation');
         $designation->setLabel('designation')
-                ->addValidator('alnum')
+                //->addValidator('alnum')
                 ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('please enter alplanumaric only')
                 ->setRequired(TRUE);
 
         $organization = new Zend_Form_Element_Text('organization');
         $organization->setLabel('organization')
-                ->addValidator('alnum')
+                //->addValidator('alnum')
                 ->addValidator('regex', false, array('/^[a-zA-Z0-9]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('please enter alplanumaric only')
                 ->setRequired(TRUE);
 

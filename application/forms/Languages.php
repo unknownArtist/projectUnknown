@@ -24,8 +24,9 @@ class Application_Form_Languages extends Zend_Form
 
         $language = new Zend_Form_Element_Text('language');
         $language->setLabel('language')
-                ->addValidator('alnum')
+                //->addValidator('alnum')
                 ->addValidator('regex', false, array('/^[a-zA-Z]/'))
+                ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('Please enter valid name')
                 ->setRequired(TRUE);
 
