@@ -23,7 +23,7 @@ class LoginController extends Zend_Controller_Action
             if ($form->isValid($formData)) 
                 {
                     $userName    = $form->getValue('userName');
-                    $password = $form->getValue('password');
+                    $password =    sha1($form->getValue('password'));
                     
                          $authAdapter->setIdentity($userName)
                                      ->setCredential($password);
