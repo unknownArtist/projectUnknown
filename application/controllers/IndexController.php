@@ -4,6 +4,12 @@ class IndexController extends Zend_Controller_Action
 {
 public function init()
     {
+
+        if(!Zend_Auth::getInstance()->hasIdentity())
+        {
+            $this->_redirect('login');
+        }
+        
         
     }
 
@@ -143,9 +149,10 @@ public function init()
 
                 $insertVal->update($data,$where);
                 
+
                     
-                //     echo "data updated";
-                     $this->_redirect('index');
+                     $this->view->msg = "profile updated";
+                     //$this->_redirect('index');
                 // }
                 // else
                 // {

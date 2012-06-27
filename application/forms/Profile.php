@@ -5,6 +5,13 @@ class Application_Form_Profile extends Zend_Form
 
     public function init()
     {
+
+        $data = array(
+
+        'Male' => 'Male',
+        'Female' => 'Female',
+        );
+
         $this->setMethod('post');
         $this->setAction('#');
 
@@ -35,9 +42,13 @@ class Application_Form_Profile extends Zend_Form
         $profilePic->setLabel('profilePic')
              ->setRequired(TRUE);
 
-        $gender = new Zend_Form_Element_Text('gender');
+
+        $gender = new Zend_Form_Element_Select('gender');
         $gender->setLabel('gender')
-             ->setRequired(TRUE);
+              ->setMultiOptions($data)
+              ->setRequired(true)
+              ->addValidator('NotEmpty', true);
+
 
         $website = new Zend_Form_Element_Text('website');
         $website->setLabel('website')

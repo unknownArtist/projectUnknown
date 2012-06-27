@@ -1,6 +1,6 @@
 <?php
 
-class Application_Form_Education extends Zend_Form
+class Application_Form_Education extends 
 {
 
     public function init()
@@ -10,8 +10,7 @@ class Application_Form_Education extends Zend_Form
 
         $degree = new Zend_Form_Element_Text('degree');
         $degree->setLabel('degree')
-                //->addValidator('alnum')
-                ->addValidator('regex', false, array('/^[a-zA-Z]/')
+                ->addValidator('regex', false, array('/^[a-zA-Z]/'))
                 ->addValidator('Alnum', false, array('allowWhiteSpace' => true))
                 ->addErrorMessage('Kindly enter alplabets only')
                 ->setRequired(TRUE);
@@ -36,12 +35,16 @@ class Application_Form_Education extends Zend_Form
         $description = new Zend_Form_Element_Text('description');
         $description->setLabel('description')
              ->setRequired(TRUE);
+        
+        
+        
+        
 
              
         $submitEducation = new Zend_Form_Element_Submit('Save');
 
         $this->addElements(array(
-
+            
             $degree,
             $regNo,
             $fromDate,

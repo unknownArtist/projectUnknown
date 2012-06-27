@@ -1,6 +1,55 @@
+<head>
+	<style type="text/css">
+	.done {
+		background: red;
+		color: white;
+	}
+	</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+</head>
+<script type="text/javascript">
+	
+
+	$(document).ready(function(){
+ 		$("#Save").click(function() {
+
+ 			
+ 			
+			 postObject = new Object;
+	    	
+	    $.post('/index/profile/', postObject,
+	      function(data){
+	      	return false;
+	        if (data.valid)
+	        {
+	            $("#changed").html(data);
+	        }
+	        else
+	        {
+	            $("#changed").html('not update');
+	        }
+	      }, "json" );
+				 				
+
+				 				// //alert('save button');
+ 			 // $.post('index/profile', function(data) {
+ 			 // 	$("#Save").attr("disabled", "disabled");
+  			// 	$('.result').html(data);
+					// });
+ 		});
+
+	});
+</script>
+
 
 <?php
 //......profile......
 echo $this->profileForm;
 
 ?>
+<div id="changed">
+<?php if(isset($this->msg))
+	
+	echo $this->msg;
+?>
+</div>
