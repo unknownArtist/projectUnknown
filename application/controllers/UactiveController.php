@@ -19,13 +19,13 @@ class UactiveController extends Zend_Controller_Action
     	 if ($this->getRequest()->isPost() && $this->view->form->isValid($this->_getAllParams()))
        {
        	//getting the password from the form and inserting it in the db
-       	$password = $form->getValue('password');
-    	$user = new Application_Model_Users();
- 		$userName = $this->_request->getParam('userName');
-  		$where = "userName = '$userName'";
-		$data = array('password' => $form->getValue('password'));
-		$user->update($data, $where);
-		echo "Your Password has been changed!";
+           $password = $form->getValue('password');
+    	     $user = new Application_Model_Users();
+ 		       $userName = $this->_request->getParam('userName');
+  		     $where = "userName = '$userName'";
+		       $data = array('password' => $form->getValue('password'));
+		       $user->update($data, $where);
+		       echo "Your Password has been changed!";
 	}
     
 
