@@ -19,20 +19,23 @@ class SignUpController extends Zend_Controller_Action
         {
             //inserting Username,Password and EmailID in "users" table 
               $user = new Application_Model_Users();
+              
               $u_data = array(
 
                     'userName'    =>    $form->getValue('userName'),
                     'password'    =>    $password =  md5( rand(0,1000) ),
                     'emailID'     =>    $form->getValue('emailID'),
                 );
-
+        
+            
             //inserting Firstname and Lastname in "profile" table
-              $profile = new Application_Model_Profile();
-              $p_data =  array(
+              // $profile = new Application_Model_Profile();
+              // $p_data =  array(
+              //       'userID'      =>    
+              //       'firstName'   =>    $form->getValue('firstName'),
+              //       'lastName'    =>    $form->getValue('lastName'),
 
-                    'firstName'    =>    $form->getValue('firstName'),
-                    'lastName'    =>     $form->getValue('lastName'),
-                );
+              //   );
 
             //checking for unique username in database
               $username = $form->getValue('userName');
@@ -50,6 +53,20 @@ class SignUpController extends Zend_Controller_Action
                         {
                           //insert the entries of the form in the respective tables
                            $user->insert($u_data);
+                           $userName = $form->getValue('userName');
+                           $where  = "userName = '$userName'";
+                           $userdata = $user->fetchRow($where)->toArray();
+                            $userdata['userID'];
+                           
+
+                           $profile = new Application_Model_Profile();
+                           $p_data =  array(
+                               'userID'      =>    $userdata['userID'],
+                               'firstName'   =>    $form->getValue('firstName'),
+                               'lastName'    =>    $form->getValue('lastName'),
+
+                                           );
+
                            $profile->insert($p_data);
                            $this->view->successMessage = "Your Account has been created Kindly check your email";
 

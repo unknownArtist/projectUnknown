@@ -103,7 +103,7 @@ public function init()
                 $data = array(
                 'firstName'     => $form->getValue('firstName'),
                 'lastName'      => $form->getValue('lastName'),
-                'gender'      => $form->getValue('gender'),
+                'gender'        => $form->getValue('gender'),
                 'dateOfBirth'   => $form->getValue('dateOfBirth'),
                 'profilePic'    => $form->getValue('profilePic'),
                 'website'       => $form->getValue('website'),
