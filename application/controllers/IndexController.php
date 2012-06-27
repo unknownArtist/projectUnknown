@@ -12,7 +12,7 @@ public function init()
         
         $userData = new Zend_Session_Namespace('Default');
         //echo $userData->userID;
-        $where = "userID = $userData->userID";
+        $where = "userID = '$userData->userID'";
 
         $tmp = new Application_Model_Profile();
         $data = $tmp->fetchRow($where)->toArray();
