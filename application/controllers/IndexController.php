@@ -149,9 +149,10 @@ public function init()
 
                 $insertVal->update($data,$where);
                 
+
                     
-                //     echo "data updated";
-                     $this->_redirect('index');
+                     $this->view->msg = "profile updated";
+                     //$this->_redirect('index');
                 // }
                 // else
                 // {
