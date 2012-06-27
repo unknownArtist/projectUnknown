@@ -15,7 +15,7 @@ public function init()
         $where = "userID = $userData->userID";
 
         $tmp = new Application_Model_Profile();
-        $data = $tmp->fetchAll($where)->toArray();
+        $data = $tmp->fetchRow($where)->toArray();
         $this->view->userdata = $data;
 
         //---- achievements------
