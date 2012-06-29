@@ -103,7 +103,7 @@ public function init()
             if($form->isValid($formData))
             {
 
-<<<<<<< HEAD
+
                     if(($form->getValue('profilePic'))==null)
                     {
                         $tempPic1 = $form->getValue('pic1');
@@ -126,24 +126,6 @@ public function init()
                         'city'          => $form->getValue('city'),
                         'street'        => $form->getValue('street'),
                         'house'         => $form->getValue('house'),
-=======
-                if($form->getValue('profilePic'))
-                {
-
-                $data = array(
-                'firstName'     => $form->getValue('firstName'),
-                'lastName'      => $form->getValue('lastName'),
-                'gender'        => $form->getValue('gender'),
-                'dateOfBirth'   => $form->getValue('dateOfBirth'),
-                'profilePic'    => $form->getValue('profilePic'),
-                'website'       => $form->getValue('website'),
-                'objective'     => $form->getValue('objective'),
-                'country'       => $form->getValue('country'),
-                'region'        => $form->getValue('region'),
-                'city'          => $form->getValue('city'),
-                'street'        => $form->getValue('street'),
-                'house'         => $form->getValue('house'),
->>>>>>> 96e947155497f4bc737f953718151c69a8848a03
                 
                 );
                
