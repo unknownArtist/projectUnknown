@@ -103,56 +103,40 @@ public function init()
             if($form->isValid($formData))
             {
 
-                if($form->getValue('profilePic'))
-                {
+                    if(($form->getValue('profilePic'))==null)
+                    {
+                        $tempPic1 = $form->getValue('pic1');
+                    }
+                    else
+                    {
+                         $tempPic1 = $form->getValue('profilePic');
+                    }
 
-                $data = array(
-                'firstName'     => $form->getValue('firstName'),
-                'lastName'      => $form->getValue('lastName'),
-                'gender'      => $form->getValue('gender'),
-                'dateOfBirth'   => $form->getValue('dateOfBirth'),
-                'profilePic'    => $form->getValue('profilePic'),
-                'website'       => $form->getValue('website'),
-                'objective'     => $form->getValue('objective'),
-                'country'       => $form->getValue('country'),
-                'region'        => $form->getValue('region'),
-                'city'          => $form->getValue('city'),
-                'street'        => $form->getValue('street'),
-                'house'         => $form->getValue('house'),
+                        $data = array(
+                        'firstName'     => $form->getValue('firstName'),
+                        'lastName'      => $form->getValue('lastName'),
+                        'gender'      => $form->getValue('gender'),
+                        'dateOfBirth'   => $form->getValue('dateOfBirth'),
+                        'profilePic'    => $tempPic1,
+                        'website'       => $form->getValue('website'),
+                        'objective'     => $form->getValue('objective'),
+                        'country'       => $form->getValue('country'),
+                        'region'        => $form->getValue('region'),
+                        'city'          => $form->getValue('city'),
+                        'street'        => $form->getValue('street'),
+                        'house'         => $form->getValue('house'),
                 
                 );
-                }
-
-            else
-                {
-
-                $data = array(
-                'firstName'     => $form->getValue('firstName'),
-                'lastName'      => $form->getValue('lastName'),
-                'gender'      => $form->getValue('gender'),
-                'dateOfBirth'   => $form->getValue('dateOfBirth'),
-                //'profilePic'    => $form->getValue('profilePic'),
-                'website'       => $form->getValue('website'),
-                'objective'     => $form->getValue('objective'),
-                'country'       => $form->getValue('country'),
-                'region'        => $form->getValue('region'),
-                'city'          => $form->getValue('city'),
-                'street'        => $form->getValue('street'),
-                'house'         => $form->getValue('house'),
-                );
-
-                }
+               
 
                 $insertVal = new Application_Model_Profile();
                 $userData = new Zend_Session_Namespace('Default');
                 $where = "userID = $userData->userID";
 
                 $insertVal->update($data,$where);
-                
-
                     
-                     $this->view->msg = "profile updated";
-                     //$this->_redirect('index');
+                $this->view->msg = "profile updated";
+                $this->_redirect('index');
                 // }
                 // else
                 // {
