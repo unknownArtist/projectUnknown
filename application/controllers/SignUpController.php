@@ -17,27 +17,10 @@ class SignUpController extends Zend_Controller_Action
 
       if ($this->getRequest()->isPost() && $this->view->form->isValid($this->_getAllParams()))
         {
-            //inserting Username,Password and EmailID in "users" table 
+          
               $user = new Application_Model_Users();
-              
-              $u_data = array(
-
-                    'userName'    =>    $form->getValue('userName'),
-                    'password'    =>    $password =  md5( rand(0,1000) ),
-                    'emailID'     =>    $form->getValue('emailID'),
-                );
-        
-            
-            //inserting Firstname and Lastname in "profile" table
-              // $profile = new Application_Model_Profile();
-              // $p_data =  array(
-              //       'userID'      =>    
-              //       'firstName'   =>    $form->getValue('firstName'),
-              //       'lastName'    =>    $form->getValue('lastName'),
-
-              //   );
-
-            //checking for unique username in database
+             
+              //checking for unique username in database
               $username = $form->getValue('userName');
               $where = "userName = '$username'";
               $u_name = $user->fetchAll($where)->toArray();  
@@ -51,14 +34,21 @@ class SignUpController extends Zend_Controller_Action
 
                         if(empty($mail))//if the emailId entered in Signup form is unique
                         {
-                          //insert the entries of the form in the respective tables
+                        
+                          //inserting Username,Password and EmailID in "users" table 
+                          $u_data = array(
+
+                                'userName'    =>    $form->getValue('userName'),
+                                'password'    =>    $password =  md5( rand(0,1000) ),
+                                'emailID'     =>    $form->getValue('emailID'),
+                                         ); 
+
                            $user->insert($u_data);
                            $userName = $form->getValue('userName');
                            $where  = "userName = '$userName'";
                            $userdata = $user->fetchRow($where)->toArray();
-                            $userdata['userID'];
-                           
-
+                            
+                          //inserting Firstname and Lastname with userID in "profile" table
                            $profile = new Application_Model_Profile();
                            $p_data =  array(
                                'userID'      =>    $userdata['userID'],
@@ -84,7 +74,6 @@ class SignUpController extends Zend_Controller_Action
                             $transport = new Zend_Mail_Transport_Smtp($smtpServer, $config);
                             Zend_Mail::setDefaultTransport($transport);
                             $message = '
-
                                     Thanks for signing up!
                                     Your account has been created, you can login with the following credentials after you 
                                     have activated your account by pressing the url below.
@@ -110,13 +99,11 @@ class SignUpController extends Zend_Controller_Action
                         {
                           echo "EmailID already taken.Please choose another one";//if emailID is not unique
                         }
-
                }
               else 
                 {
                   echo "Name already taken.Please choose another one"; //if username is not unique
                 }
-           
         
 
         }
