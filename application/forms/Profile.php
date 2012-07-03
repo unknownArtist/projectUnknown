@@ -78,6 +78,19 @@ class Application_Form_Profile extends Zend_Form
         $house->setLabel('house')
              ->setRequired(TRUE);
 
+
+        $temp = new Application_Model_Profile();
+        $userData = new Zend_Session_Namespace('Default');
+        $where = "userID = $userData->userID";
+        $dd = $temp->fetchRow($where)->toArray();
+
+        $pic1 = new Zend_Form_Element_Hidden('pic1');
+        $pic1->setValue($dd['profilePic']);
+        
+        $test = new Zend_Form_Element_Image('test');
+        $test ->setImage('/images'.$dd['profilePic']);
+
+
         
         $profilePic    = new Zend_Form_Element_File('profilePic');
         $profilePic->setLabel('Select the file to upload:')
@@ -95,6 +108,8 @@ class Application_Form_Profile extends Zend_Form
             $firstName,
             $lastName,
             $dateOfBirth,
+            $pic1,
+            $test,
             $profilePic,
             $gender,
             $website,
@@ -104,7 +119,7 @@ class Application_Form_Profile extends Zend_Form
             $city,
             $street,
             $house,
-            $profilePic,
+            //$profilePic,
             $submitprofile,
 
             ));
