@@ -36,7 +36,7 @@ class Application_Form_Signup extends Zend_Form
 
         $recaptchaKeys = Zend_Registry::get('config.recaptcha');
         $recaptcha = new Zend_Service_ReCaptcha($recaptchaKeys['publickey'], $recaptchaKeys['privatekey'],
-                                                NULL, array('theme' => 'clean'));
+                                                NULL, array('theme' => 'white'));
          $captcha = new Zend_Form_Element_Captcha('captcha',
                                             array(
                                                 'label' => 'Type the characters you see in the picture below.',
