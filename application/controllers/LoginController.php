@@ -10,6 +10,9 @@ class LoginController extends Zend_Controller_Action
 
     public function indexAction()
     {
+            // require_once "Swift/lib/swift_required.php";
+            // $transport = Swift_SmtpTransport::newInstance()
+        
         $form = new Application_Form_Login();
         $this->view->lgnform = $form;
 
