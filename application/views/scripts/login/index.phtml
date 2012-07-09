@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  <?php 
        echo $this->lgnform;
 
@@ -14,3 +15,12 @@
 
     </body>
  </html>
+=======
+ <?php 
+       echo $this->lgnform;
+
+       if(isset($this->SignUpError)); 
+        echo $this->SignUpError;
+    ?>
+<a id="editprofile" href="<?php echo $this->url(array('controller' =>'sign-up','action'  => 'index')); ?>">Sign Up</a>
+>>>>>>> 1391e354057ce1ad316cb3a511df5b4dde77c6bb

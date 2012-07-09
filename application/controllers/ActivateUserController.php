@@ -15,21 +15,31 @@ class ActivateUserController extends Zend_Controller_Action
     	$userName = $this->_request->getParam('userName');//getting userName from url passed in the confirmation email
 		$where = "userName = '$userName'";
 		$u_Name = $user->fetchAll($where)->toArray();
-
+        
 		if(!empty($u_Name))//if username is present
 			{
+
     			//searching in db for the password passed in the url
 				$password = $this->_request->getParam('password');
 				$where = "password = '$password'";
 				$u_password = $user->fetchAll($where)->toArray();
-				
+
 				if(!empty($u_password))//if email is present
 				{
+<<<<<<< HEAD
+					
+					//update the staus of the user from 0 to 1(user activated)
+					$where = "userName = '$userName'";
+					$data = array('status' => '1');
+					$user->update($data, $where);
+					$this->_redirect('uactive/index/userName/'.$userName);
+=======
 				   //update the staus of the user from 0 to 1(user activated)
 				   $where = "userName = '$userName'";
 				   $data = array('status' => '1');
 				   $user->update($data, $where);
 				   $this->_redirect('uactive/index/userName/'.$userName);
+>>>>>>> a5062e85f03f97d7e9c68336be7196f5e16650f4
 
 				}
 			}
