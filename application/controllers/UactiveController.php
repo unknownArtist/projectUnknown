@@ -16,7 +16,7 @@ class UactiveController extends Zend_Controller_Action
     	$form = new Application_Form_Uactive();
     	$this->view->form = $form;
 
-<<<<<<< HEAD
+
       	 if($this->getRequest()->isPost())
          {
             $formData = $this->getRequest()->getPost();
@@ -41,12 +41,12 @@ class UactiveController extends Zend_Controller_Action
 
         	
 	     
-=======
+
     	 if ($this->getRequest()->isPost() && $this->view->form->isValid($this->_getAllParams()))
        {
 
        	    //getting the password from the form and inserting it in the db
-<<<<<<< HEAD
+
             $password = $form->getValue('password');
             $user = new Application_Model_Users();
          	  $userName = $this->_request->getParam('userName');
@@ -57,24 +57,24 @@ class UactiveController extends Zend_Controller_Action
         	  echo "Your Password has been changed!";
 	     }
 
-	  }
+	  
     
-=======
+
                 $password = $form->getValue('password');
                 $user = new Application_Model_Users();
-             	$userName = $this->_request->getParam('userName');
+              	$userName = $this->_request->getParam('userName');
               	$where = "userName = '$userName'";
-            	$data = array('password' => sha1($form->getValue('password')));
-            	$user->update($data, $where);
+            	  $data = array('password' => sha1($form->getValue('password')));
+            	  $user->update($data, $where);
 
         	    echo "Your Password has been changed!";
     
-	     }
->>>>>>> a5062e85f03f97d7e9c68336be7196f5e16650f4
+	     
 
-    }
 
-<<<<<<< HEAD
+    
+
+
        	//getting the password from the form and inserting it in the db
            $password = $form->getValue('password');
     	     $user = new Application_Model_Users();
@@ -83,7 +83,7 @@ class UactiveController extends Zend_Controller_Action
 		       $data = array('password' => $form->getValue('password'));
 		       $user->update($data, $where);
 		       echo "Your Password has been changed!";
-	}
+	
 
 
        // 	//getting the password from the form and inserting it in the db
@@ -95,9 +95,6 @@ class UactiveController extends Zend_Controller_Action
 		     // $user->update($data, $where);
 		     // echo "Your Password has been changed!";
 	
- 
-=======
 
->>>>>>> d605203a0b8f3890f3eacdc7cc73edf3f2147eae
->>>>>>> a5062e85f03f97d7e9c68336be7196f5e16650f4
+}
 }

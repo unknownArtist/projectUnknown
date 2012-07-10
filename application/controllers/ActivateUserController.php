@@ -26,20 +26,20 @@ class ActivateUserController extends Zend_Controller_Action
 
 				if(!empty($u_password))//if email is present
 				{
-<<<<<<< HEAD
+
 					
 					//update the staus of the user from 0 to 1(user activated)
 					$where = "userName = '$userName'";
 					$data = array('status' => '1');
 					$user->update($data, $where);
 					$this->_redirect('uactive/index/userName/'.$userName);
-=======
+
 				   //update the staus of the user from 0 to 1(user activated)
 				   $where = "userName = '$userName'";
 				   $data = array('status' => '1');
 				   $user->update($data, $where);
 				   $this->_redirect('uactive/index/userName/'.$userName);
->>>>>>> a5062e85f03f97d7e9c68336be7196f5e16650f4
+
 
 				}
 			}
