@@ -20,6 +20,7 @@ class ActivateUserController extends Zend_Controller_Action
 			{
     			//searching in db for the password passed in the url
 				$password = $this->_request->getParam('password');
+				// $password = $u_Name['password'];
 				$where = "password = '$password'";
 				$u_password = $user->fetchAll($where)->toArray();
 				

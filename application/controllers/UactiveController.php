@@ -28,6 +28,7 @@ class UactiveController extends Zend_Controller_Action
             	$user->update($data, $where);
 
         	    echo "Your Password has been changed!";
+                // $this->_redirect('activate-user/index/userName/'.$userName);
     
 	     }
 

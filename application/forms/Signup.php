@@ -6,7 +6,7 @@ class Application_Form_Signup extends Zend_Form
     public function init()
     {
         /* Form Elements & Other Definitions Here ... */
-        $this->setAction('sign-up');
+        $this->setAction('/sign-up/index');
         $this->setMethod('post');
 
         $submit = NULL; 
