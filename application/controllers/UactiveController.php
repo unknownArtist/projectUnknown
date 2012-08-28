@@ -1,3 +1,5 @@
+
+
 <?php
 
 class UactiveController extends Zend_Controller_Action
@@ -20,19 +22,36 @@ class UactiveController extends Zend_Controller_Action
        {
 
        	    //getting the password from the form and inserting it in the db
-                $password = $form->getValue('password');
-                $user = new Application_Model_Users();
+
+            $password = $form->getValue('password');
+            $user = new Application_Model_Users();
+         	  $userName = $this->_request->getParam('userName');
+          	$where = "userName = '$userName'";
+        	  $data = array('password' => sha1($form->getValue('password')));
+        	  $user->update($data, $where);
+
+        	  echo "Your Password has been changed!";
+	     }
+
+	  
+    
+        else
+        {
+              $password = $form->getValue('password');
+              $user = new Application_Model_Users();
              	$userName = $this->_request->getParam('userName');
-              	$where = "userName = '$userName'";
+              $where = "userName = '$userName'";
             	$data = array('password' => sha1($form->getValue('password')));
             	$user->update($data, $where);
 
-        	    echo "Your Password has been changed!";
-                // $this->_redirect('activate-user/index/userName/'.$userName);
+        	   
     
 	     }
 
     }
 
 
+
 }
+
+

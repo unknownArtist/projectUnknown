@@ -1,3 +1,15 @@
 <?php
 echo $this->form;
+
+
+if(isset($this->successMsg))
+{
+	echo $this->successMsg;
+}
+
+if(isset($this->errorMsg))
+{
+	echo $this->errorMsg;
+}
+
 ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1
+-- version 3.4.5
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 26, 2012 at 04:09 PM
--- Server version: 5.5.20
--- PHP Version: 5.3.10
+-- Generation Time: Jul 06, 2012 at 06:44 AM
+-- Server version: 5.5.16
+-- PHP Version: 5.3.8
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -194,14 +194,16 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `street` varchar(255) NOT NULL,
   `house` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `profile`
 --
 
 INSERT INTO `profile` (`id`, `userID`, `firstName`, `lastName`, `gender`, `dateOfBirth`, `profilePic`, `website`, `objective`, `country`, `region`, `city`, `street`, `house`) VALUES
-(1, 1, 'Muhammad', 'Gufrann', 'male', '2009-01-02', '123.jpg', 'www.wwww', 'bvv', 'pakistan', 'KPK', 'abbtabad', 'st1', '343');
+(1, 1, 'Muhammad', 'Gufrann', 'male', '2009-01-02', '123.jpg', 'www.wwww', 'bvv', 'pakistan', 'KPK', 'abbtabad', 'st1', '343'),
+(4, 4, 'Muhammad', 'ali', NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', ''),
+(5, 5, 'Muhammad', 'ali', NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -359,14 +361,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `status` bit(1) NOT NULL,
   `roll` bit(1) NOT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`userID`, `userName`, `password`, `emailID`, `status`, `roll`) VALUES
-(1, 'gufran', '123456', 'gufran@hotmail.com', b'1', b'0');
+(1, 'gufran', '123456', 'gufran@hotmail.com', b'1', b'0'),
+(5, 'ali', 'quickbrown', 'rooott@gmail.com', b'1', b'0');
 
 -- --------------------------------------------------------
 
